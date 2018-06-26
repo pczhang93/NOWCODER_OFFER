@@ -40,3 +40,43 @@ class Solution:
         s = s.replace(' ', '%20')
         return s
 ~~~
+书上C++版：
+~~~
+class Solution {
+public:
+    void replaceSpace(char *str,int length) {
+        int numberOfSpace = 0;
+        int originalLength = 0;
+        int i = 0;
+        while(str[i] != '\0')
+        {
+            ++originalLength;
+            if (str[i] == ' ')
+            {
+                ++numberOfSpace;
+            }
+             
+            ++i; 
+        }
+        int newLength = originalLength + numberOfSpace * 2;
+        int indexOfOriginal = originalLength;
+        int indexOfNew = newLength;
+        while(indexOfOriginal >= 0 && indexOfNew > indexOfOriginal)
+        {
+            if (str[indexOfOriginal] == ' ')
+            {
+                str[indexOfNew--] = '0';
+                str[indexOfNew--] = '2';
+                str[indexOfNew--] = '%';
+            }
+            else
+            {
+                str[indexOfNew--] = str[indexOfOriginal];
+            }
+            --indexOfOriginal;
+        }
+         
+ 
+    }
+};
+~~~
