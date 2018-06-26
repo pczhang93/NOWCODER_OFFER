@@ -40,7 +40,7 @@ class Solution:
         s = s.replace(' ', '%20')
         return s
 ~~~
-书上C++版：
+参考书上的C++思路：
 ~~~
 class Solution {
 public:
@@ -80,3 +80,42 @@ public:
     }
 };
 ~~~
+#### 从尾到头打印链表 
+
+题目描述：输入一个链表，从尾到头打印链表每个节点的值。
+还是用C++刷题爽。
+~~~
+/**
+*  struct ListNode {
+*        int val;
+*        struct ListNode *next;
+*        ListNode(int x) :
+*              val(x), next(NULL) {
+*        }
+*  };
+*/
+class Solution {
+public:
+    vector<int> printListFromTailToHead(ListNode* head) {
+        std::stack<ListNode*>nodes;
+         
+        ListNode* pNode = head;
+        while(pNode != NULL)
+        {
+            nodes.push(pNode);
+            pNode = pNode -> next;
+        }
+        std::vector<int>reverseVector;
+        while(!nodes.empty())
+        {
+            pNode = nodes.top();
+            cout << pNode -> val << endl;
+            reverseVector.push_back(pNode -> val);
+            nodes.pop();
+        }
+        return reverseVector;
+         
+    }
+};
+~~~
+
