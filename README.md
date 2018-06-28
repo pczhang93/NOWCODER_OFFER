@@ -155,8 +155,9 @@ private:
     stack<int> stack2;
 };
 ~~~
+不通过。
 内存超限:您的程序使用了超过限制的内存
-看书上思路，修改代码。
+看书上思路，修改代码。主要是每次出栈后可以先不将stack2的元素逐个送回stack1，每次出队可以直接从stack2.pop()，直到stack2为空再从stack1逐个送元素入stack2.
 ~~~
 class Solution
 {
