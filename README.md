@@ -156,3 +156,41 @@ private:
 };
 ~~~
 内存超限:您的程序使用了超过限制的内存
+看书上思路，修改代码。
+~~~
+class Solution
+{
+public:
+    void push(int node) {
+        stack1.push(node); 
+    }
+ 
+    int pop() {
+        int e;  
+        if(stack2.empty()){
+            if (!stack1.empty()){
+            while(!stack1.empty()){
+                stack2.push(stack1.top());
+                stack1.pop();
+            }
+            e = stack2.top();
+            stack2.pop();
+            return e;
+            }
+             
+            else
+                return -1;
+            }
+        else{  // !stack2.empty()
+            e = stack2.top();
+            stack2.pop();
+            return e;
+        }
+ 
+    }
+ 
+private:
+    stack<int> stack1;
+    stack<int> stack2;
+};
+~~~
