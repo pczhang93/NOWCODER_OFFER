@@ -120,4 +120,39 @@ public:
     }
 };
 ~~~
+### 20180628 
+#### 用两个栈实现队列 
 
+题目描述：
+用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
+~~~
+class Solution
+{
+public:
+    void push(int node) {
+        stack1.push(node);     
+    }
+
+    int pop() {
+        int i, e;
+        while(!stack1.empty()){
+            i = stack1.top();
+            stack2.push(i);
+            stack1.pop();
+        }
+        e = stack2.top();
+        stack2.pop();
+        while(!stack2.empty()){
+            i = stack2.top();
+            stack1.push(i);
+        }
+        return e;
+        
+    }
+
+private:
+    stack<int> stack1;
+    stack<int> stack2;
+};
+~~~
+内存超限:您的程序使用了超过限制的内存
