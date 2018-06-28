@@ -32,6 +32,7 @@ class Solution:
 题目描述：
 
 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+
 ~~~
 # -*- coding:utf-8 -*-
 class Solution:
@@ -42,6 +43,7 @@ class Solution:
         s = s.replace(' ', '%20')
         return s
 ~~~
+感觉用Python这么写有点心虚。
 参考书上的C++思路：
 ~~~
 class Solution {
@@ -156,7 +158,8 @@ private:
 };
 ~~~
 不通过。
-内存超限:您的程序使用了超过限制的内存
+内存超限:您的程序使用了超过限制的内存。
+
 看书上思路，修改代码。主要是每次出栈后可以先不将stack2的元素逐个送回stack1，每次出队可以直接从stack2.pop()，直到stack2为空再从stack1逐个送元素入stack2.
 ~~~
 class Solution
